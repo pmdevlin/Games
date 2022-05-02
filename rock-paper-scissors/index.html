@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type='text/css' href="index.css">
+    <script defer src="app.js"></script>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div id='container'>
+        <div id='display'>
+            <div id="player">  
+                <h2> Players choice:</h2>
+                <img id="playerChoiceImage">
+            </div>            
+            <div id='computer'>
+                <h2> Computer choice: </h2>
+                <img id="computerChoiceImage">
+                
+            </div>            
+        </div>
+        <div id="titleStatement">
+            <h2>Make Your Selection</h2>
+            <h2> Result: <span id="result"></span> </h2>
+        </div>
+        <div id="buttons">
+            
+            <button class="btn" id="Rock">Rock</button>
+            <button class="btn" id="Paper">Paper</button>
+            <button class="btn" id="Scissors">Scissors</button>
+        </div>
+        <div id="scoreboardContainer">
+            <div id="scoreboardTitle">
+                <h2>Scoreboard</h2>
+                
+            </div>
+            <div id='scoreboard'> 
+                <h2 class="score"> Wins: <span id='win'></span></h2>
+                <h2 class="score"> Losses: <span id='loss'></span></h2>
+                <h2 class="score"> Draws: <span id='draw'></span></h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

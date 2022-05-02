@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Josefin+Sans&family=Teko&display=swap');
+/* font-family: 'Bangers', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Teko', sans-serif; */
+body{
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 25px;
+    width: 50%;
+}
+#display{
+    display: flex;
+    flex-direction: row;
+    width: 100%;  
+
+}
+#computer, #player{
+    font-size: larger;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#computerChoiceImage, #playerChoiceImage{
+    width: 10rem;
+    height: 10rem;
+}
+.btn {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 25px;
+    font-size: medium;
+    font-weight: bolder;
+}    
+.btn:hover {
+    box-shadow: -1px 1px 5px 2px black;
+}
+
+#buttons {
+    width: 100%;    
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem;
+    
+}
+#titleStatement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#scoreboardContainer { 
+    width: 100%;
+    
+}
+#scoreboardTitle{
+    color: whitesmoke;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#scoreboard {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;   
+}
