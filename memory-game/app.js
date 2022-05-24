@@ -60,13 +60,25 @@ cardArr.sort(() => 0.5 - Math.random())
 const gridDisplay = document.querySelector('#grid')
 
 const createBoard = () => {
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < cardArr.length; i++){
         const card = document.createElement('img')
         card.setAttribute('src', 'images/blank.png')
         card.setAttribute('data-id', i)
+        card.addEventListener('click', flipCard)
         console.log(card, i)
         gridDisplay.append(card)
     }
 
 }
+// call the function 
 createBoard()
+
+
+// if arrow function is used for this function you get an error because the
+// the function createBoard is initiated before the flipCard function
+function flipCard() {
+    let cardId = this.getAttribute('data-id')
+console.log('clicked', cardId)
+}
+
+
