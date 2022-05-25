@@ -58,7 +58,10 @@ const cardArr = [
 cardArr.sort(() => 0.5 - Math.random())
 
 const gridDisplay = document.querySelector('#grid')
-const cardsChosen = []
+const resultDisplay = document.querySelector('#result')
+let cardsChosen = []
+let cardsChosenIds = []
+const cardsWon =[]
 
 const createBoard = () => {
     for(let i = 0; i < cardArr.length; i++){
@@ -75,7 +78,36 @@ const createBoard = () => {
 createBoard()
 
 function checkMatch (){
+    const cards = document.querySelectorAll('img')
+    const optionOneId = cardsChosenIds[0]
+    const optionTwoId = cardsChosenIds[1]
+
+    if(optionOneId == optionTwoId ){
+        alert('you have clicked the same image')
+    }
+
+
     console.log('check for a match')
+    if(cardsChosen[0] == cardsChosen[1]){
+        alert('you have found a match')
+        cards[optionOneId].setAttribute('src', 'images/white.png')
+        cards[optionTwoId].setAttribute('src', 'images/white.png')
+        cards[optionOneId].removeEventListener('click', flipCard)
+        cards[optionTwoId].removeEventListener('click', flipCard)
+        
+        cardsWon.push(cardsChosen)
+    }else{
+        cards[optionOneId].setAttribute('src', 'images/blank.png')
+        cards[optionTwoId].setAttribute('src', 'images/blank.png')
+        alert('sorry try again')
+    }
+    resultDisplay.textContent = cardsWon.length
+    let cardsChosen = []
+    let cardsChosenIds = []
+
+    if(cardsWon.length == cardArr.length/2){
+        resultDisplay.innerHTML = 'congrats you found them all'
+    }
 }
 
 // if arrow function is used for this function you get an error because the
@@ -84,6 +116,9 @@ function flipCard() {
 // using the this keyword to access whatever is clicked
     const cardId = this.getAttribute('data-id')
     cardsChosen.push(cardArr[cardId].name)
+    cardsChosenIds.push(cardId)
+    console.log(cardsChosen)
+    console.log(cardsChosenIds)
     this.setAttribute('src', cardArr[cardId].img)
     if(cardsChosen.length === 2){
         setTimeout(checkMatch, 500) 
