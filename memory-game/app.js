@@ -58,6 +58,7 @@ const cardArr = [
 cardArr.sort(() => 0.5 - Math.random())
 
 const gridDisplay = document.querySelector('#grid')
+const cardsChosen = []
 
 const createBoard = () => {
     for(let i = 0; i < cardArr.length; i++){
@@ -65,7 +66,7 @@ const createBoard = () => {
         card.setAttribute('src', 'images/blank.png')
         card.setAttribute('data-id', i)
         card.addEventListener('click', flipCard)
-        console.log(card, i)
+        // console.log(card, i)
         gridDisplay.append(card)
     }
 
@@ -73,12 +74,20 @@ const createBoard = () => {
 // call the function 
 createBoard()
 
+function checkMatch (){
+    console.log('check for a match')
+}
 
 // if arrow function is used for this function you get an error because the
 // the function createBoard is initiated before the flipCard function
 function flipCard() {
-    let cardId = this.getAttribute('data-id')
-console.log('clicked', cardId)
+// using the this keyword to access whatever is clicked
+    const cardId = this.getAttribute('data-id')
+    cardsChosen.push(cardArr[cardId].name)
+    this.setAttribute('src', cardArr[cardId].img)
+    if(cardsChosen.length === 2){
+        setTimeout(checkMatch, 500) 
+    }
 }
 
 
